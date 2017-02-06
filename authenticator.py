@@ -58,7 +58,7 @@ def login():
         target = form.target.data
         auth_token = ValidUser(username, password)
         if auth_token:
-            data = "<a href='" + "/" + "'> click here " + target + "</a>"
+            data = "<html><script type=\"text/javascript\"> window.onload = function() {setTimeout(function() {window.location = \"/\";}, 1);}; </script></html>"
             resp = Response(data, status=200)
 			# This cookie is used by nginx to check if the user is authenticated
             resp.set_cookie('X-SSO-token', auth_token)
